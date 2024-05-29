@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Saya</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("eVA8r9mGyzknpsRtP"); // Ganti dengan User ID EmailJS Anda
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -28,7 +34,7 @@
 
     <section id="about" class="about-section">
         <h2>About Me</h2>
-        <p>Hi, I'm [Your Name], a [Your Profession]. I specialize in [Your Specialization].</p>
+        <p>Hi, I'm Ichlasul Amal, I am a data enthusiast with extensive experience in data analytics and modeling. My passion lies in uncovering insights from complex datasets and transforming them into actionable strategies. With a strong foundation in statistical analysis and machine learning, I specialize in developing predictive models and optimizing business processes. I am committed to leveraging data to drive innovation and deliver impactful solutions.</p>
     </section>
 
     <section id="portfolio" class="portfolio-section">
@@ -51,7 +57,7 @@
 
     <section id="contact" class="contact-section">
         <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/{your-form-id}" method="POST">
+        <form id="contact-form">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
@@ -63,7 +69,24 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2024 Ichlasul Amal. All rights reserved.</p>
     </footer>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // These IDs from the previous steps
+                emailjs.sendForm('service_7c8od1i', 'template_ahlqnkj', this)
+                    .then(function() {
+                        alert('Your message has been sent successfully!');
+                    }, function(error) {
+                        alert('Failed to send your message. Please try again later.');
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

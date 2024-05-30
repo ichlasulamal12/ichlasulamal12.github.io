@@ -81,12 +81,42 @@ nav ul li a {
 
 .portfolio-item {
     max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
 }
 
-portfo
-lio-item img {
+.portfolio-item img {
     width: 100%;
+    height: auto;
     border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.portfolio-item h3 {
+    margin: 10px 0 5px;
+}
+
+.portfolio-item p {
+    color: #666;
+}
+
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 60px; /* Tambahkan margin bawah untuk memberi jarak lebih ke footer */
 }
 
 form {
